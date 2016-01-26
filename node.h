@@ -16,13 +16,62 @@ class List
 	List();
 	~List();
 	void insert(int x, int n);
+	void insertLast(int x);
+	int length();
 	void Delete(int n);
 	void DeleteAll();
 	void print();
 	void reverse();
 	void StackReverse();
 	node* GetNewNode(int x);
+	int operator[] (int n);
 };
+
+int List::length()
+{
+	node* temp=head;
+	int l(0);
+	while(temp!=NULL)
+	{
+		temp=temp->next;
+		l++;
+	}
+
+	return l;
+}
+
+int List::operator[] (int n)
+{
+	node* temp=head;
+
+	for(int i = 0; i < n; i ++)
+	{
+		temp=temp->next;
+	}
+
+	return temp->data;
+}
+
+void List::insertLast(int x)
+{
+	if(head==NULL)
+	{
+		insert(x,1);
+		return;
+	}
+
+	node* temp=new struct node;
+	temp->data=x;
+	temp->next=NULL;
+	node* temp1=head;
+
+	while(temp1->next!=NULL)
+	{
+		temp1=temp1->next;
+	}
+
+	temp1->next=temp;	
+}
 
 List::~List()
 {

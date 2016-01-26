@@ -28,11 +28,13 @@ int main()
 	list.StackReverse();
 	list.print();
 
-	cout<<"deleting list..."<<endl;
-	list.DeleteAll();
+	cout<<"insert last"<<endl;
+	list.insertLast(3);
 	list.print();
+
+	cout<<list.length()<<endl;
 
 
 	return 0;
-	
+
 }
